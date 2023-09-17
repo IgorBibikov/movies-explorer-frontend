@@ -96,7 +96,8 @@
   .footer {
     margin-right: 69px;
     margin-left: 69px;
-    margin-top: 64px;
+    padding-top: 64px;
+    margin-top: 0px;
   }
   .footer__title {
     margin-bottom: 19px;

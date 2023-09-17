@@ -7,6 +7,9 @@
   box-sizing: border-box;
   align-items: center;
 }
+.header_disabled {
+  display: none;
+}
 
 .logo {
   display: block;
@@ -28,7 +31,7 @@
   font-family: 'Inter', ‘Arial’, sans-serif;
   text-decoration: none;
 }
-.navbar__profile-btn {
+.header__profile-btn {
   display: block;
   font-family: 'Inter', ‘Arial’, sans-serif;
   text-align: center;
@@ -80,10 +83,10 @@
     display: none;
   }
 
-  .navbar__profile-btn {
+  .header__profile-btn {
     display: none;
   }
-  .navbar__menu-btn {
+  .header__menu-btn {
     padding: 0;
     margin: 0 20px 0 0;
     background: url(../../images/icon__burger.svg);
@@ -92,10 +95,16 @@
     height: 44px;
   }
 }
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 544px) {
+  .header__menu-btn {
+    margin: 0 36px 0 0;
+    width: 36px;
+  }
   .logo {
     margin-left: 30px;
+  }
+  .navbar__signup-btn {
+    margin-right: 30px;
   }
   .navbar_type_not-auth {
     column-gap: 30px;
@@ -105,27 +114,50 @@
     font-size: 12px;
   }
   .navbar__signup-btn {
+    padding: 0;
     margin: 0 30px 0 0;
     width: 76px;
     height: 32px;
     font-size: 12px;
-  }
-  .navbar_type_auth {
-    display: none;
-  }
-  .navbar__link_type_auth {
-    display: none;
-  }
-
-  .navbar__profile-btn {
-    display: none;
-  }
-  .navbar__menu-btn {
-    margin: 0 36px 0 0;
-    width: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 769px) {
+  .navbar_type_auth {
+    display: flex;
+    margin-left: 63px;
+    column-gap: 16px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .navbar__link_type_auth {
+    display: block;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .header__profile-btn {
+    display: block;
+    padding: 0;
+    margin: 0 30px 0 0;
+    width: 100px;
+    height: 32px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
+  .header__menu-btn {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1250px) {
   .logo {
     width: 38px;
     height: 38px;
@@ -151,24 +183,7 @@
     font-weight: 500;
     line-height: 16px;
   }
-  .navbar_type_auth {
-    display: flex;
-    margin-left: 63px;
-    column-gap: 16px;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-  }
-  .navbar__link_type_auth {
-    display: block;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-  }
-
-  .navbar__profile-btn {
+  .header__profile-btn {
     display: block;
     padding: 0;
     margin: 0 70px 0 0;
@@ -178,10 +193,6 @@
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
-  }
-
-  .navbar__menu-btn {
-    display: none;
   }
 }
 
@@ -203,11 +214,11 @@
   cursor: pointer;
 }
 
-.navbar__profile-btn:hover {
+.header__profile-btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }
-.navbar__menu-btn:hover {
+.header__menu-btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }

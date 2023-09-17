@@ -25,6 +25,9 @@
     background: #2f2f2f;
     flex-grow: 2;
   }
+  .search-form__input:focus-visible {
+    outline: 1px solid #4285f4;
+  }
   .search-form__submit-btn {
     display: block;
     background: url('../../images/search-btn.svg');

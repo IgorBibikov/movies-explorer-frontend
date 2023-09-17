@@ -2,7 +2,7 @@
   .movies {
     margin-bottom: 80px;
   }
-  .movies-cards__btn {
+  .movies__btn {
     margin: 60px auto 0;
     padding: 0;
 
@@ -27,7 +27,7 @@
   .movies {
     margin-bottom: 84px;
   }
-  .movies-cards__btn {
+  .movies__btn {
     width: 320px;
   }
 }
@@ -35,12 +35,12 @@
   .movies {
     margin-bottom: 95px;
   }
-  .movies-cards__btn {
+  .movies__btn {
     margin-top: 76px;
   }
 }
 
-.movies-cards__btn:hover {
+.movies__btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }

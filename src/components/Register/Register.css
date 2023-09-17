@@ -61,6 +61,9 @@
     border-radius: 8px;
     background: #2f2f2f;
   }
+  .sign-up__input:focus-visible {
+    outline: 1px solid #4285f4;
+  }
 
   .sign-up__input_type_email {
     font-weight: 500;

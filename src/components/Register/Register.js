@@ -3,19 +3,19 @@ import { useState, useEffect, useContext } from 'react';
 
 function Register(props) {
   return (
-    <main>
+    <main className="content">
       <section className="sign-up">
         <a href="/" className="logo logo_place_sign-up" />
-        <h2 className="sign-up__title">Добро пожаловать!</h2>
+        <h1 className="sign-up__title">Добро пожаловать!</h1>
         <form name="signup" className="sign-up__form ">
           <div className="sign-up__form-container">
             <div className="sign-up__input-container">
-              <label for="name" className="sign-up__label">
+              <label htmlFor="name" className="sign-up__label">
                 Имя
               </label>
               <input
                 className="sign-up__input sign-up__input_type_name"
-                type="name"
+                type="text"
                 name="name"
                 id="name"
                 minLength={2}
@@ -25,7 +25,7 @@ function Register(props) {
               />
             </div>
             <div className="sign-up__input-container">
-              <label for="email" className="sign-up__label">
+              <label htmlFor="email" className="sign-up__label">
                 E-mail
               </label>
               <input
@@ -38,7 +38,7 @@ function Register(props) {
               />
             </div>
             <div className="sign-up__input-container">
-              <label for="password" className="sign-up__label">
+              <label htmlFor="password" className="sign-up__label">
                 Пароль
               </label>
               <input
@@ -46,6 +46,8 @@ function Register(props) {
                 type="password"
                 name="password"
                 id="password"
+                minLength={3}
+                maxLength={40}
                 placeholder="Пароль"
                 required
               />

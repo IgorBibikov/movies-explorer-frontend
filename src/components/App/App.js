@@ -18,6 +18,7 @@ function App() {
   const [isMenuNavigationOpen, setIsMenuNavigationOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isEditProfile, setIsEditProfile] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   // const [isLoggedIn, setIsLoggedIn] = useState(true);
   const navigate = useNavigate();
@@ -38,17 +39,21 @@ function App() {
   function handleEditProfile() {
     setIsEditProfile(true);
   }
-
+  console.log();
   return (
-    <CurrentUserContext.Provider>
+    <CurrentUserContext.Provider value={currentUser}>
       <div className="body">
         <div className="page">
-          <Header
-            isLoggedIn={isLoggedIn}
-            handleBurgerButtonClick={handleBurgerButtonClick}
-            isMenuPNavigationOpen={isMenuNavigationOpen}
-            handlePrfileBtnClick={handleProfileBtnClick}
-          />
+          {['/', '/movies', '/saved-movies', '/profile'].includes(
+            location.pathname
+          ) && (
+            <Header
+              isLoggedIn={isLoggedIn}
+              handleBurgerButtonClick={handleBurgerButtonClick}
+              isMenuPNavigationOpen={isMenuNavigationOpen}
+              handlePrfileBtnClick={handleProfileBtnClick}
+            />
+          )}
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/movies" element={<Movies />} />
@@ -65,11 +70,6 @@ function App() {
             <Route path="/*" element={<NotFound isLoggedIn={isLoggedIn} />} />
             <Route path="/signup" element={<Register />}></Route>
             <Route path="/signin" element={<Login />} />
-            {/* <Route
-              render={({ location }) =>
-                location.pathname !== '/cabinet' && <Footer />
-              }
-            /> */}
           </Routes>
 
           <Navigation
@@ -77,8 +77,9 @@ function App() {
             closeMenuNavigation={closeMenuNavigation}
             handleProfileBtnClick={handleProfileBtnClick}
           />
-
-          <Footer />
+          {['/', '/movies', '/saved-movies'].includes(location.pathname) && (
+            <Footer />
+          )}
         </div>
       </div>
     </CurrentUserContext.Provider>

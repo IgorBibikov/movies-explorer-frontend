@@ -3,6 +3,7 @@ import AboutProject from '../AboutProject/AboutProject';
 import Tech from '../Techs/Techs';
 import AboutMe from '../AboutMe/AboutMe';
 import Portfolio from '../Portfolio/Portfolio';
+import { useState, useEffect, useContext } from 'react';
 
 function Main(props) {
   return (

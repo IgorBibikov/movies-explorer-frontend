@@ -14,11 +14,19 @@ function AboutMe() {
             Контур». После того, как прошёл курс по веб-разработке, начал
             заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
-          <a className="about-me__link" href="https://github.com/IgorBibikov">
+          <a
+            className="about-me__link"
+            href="https://github.com/IgorBibikov"
+            target="_blank"
+          >
             Github
           </a>
         </div>
-        <img className="about-me__img" src={foto} alt="Фотография" />
+        <img
+          className="about-me__img"
+          src={foto}
+          alt="Фотография фронтенд-разработчка Игоря на мальдивском пляже "
+        />
       </div>
     </section>
   );

@@ -3,14 +3,14 @@ import { useState, useEffect, useContext } from 'react';
 
 function Login(props) {
   return (
-    <main>
+    <main className="content">
       <section className="sign-in">
         <a href="/" className="logo logo_place_sign-in" />
-        <h2 className="sign-in__title">Рады видеть!</h2>
+        <h1 className="sign-in__title">Рады видеть!</h1>
         <form name="signin" className="sign-in__form ">
           <div className="sign-in__form-container">
             <div className="sign-in__input-container">
-              <label for="email" className="sign-in__label">
+              <label htmlFor="email" className="sign-in__label">
                 E-mail
               </label>
               <input
@@ -23,7 +23,7 @@ function Login(props) {
               />
             </div>
             <div className="sign-in__input-container">
-              <label for="password" className="sign-in__label">
+              <label htmlFor="password" className="sign-in__label">
                 Пароль
               </label>
               <input
@@ -31,6 +31,8 @@ function Login(props) {
                 type="password"
                 name="password"
                 id="password"
+                minLength={3}
+                maxLength={40}
                 placeholder="Пароль"
                 required
               />
