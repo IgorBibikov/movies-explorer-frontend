@@ -1,0 +1,186 @@
+@media screen and (min-width: 320px) {
+  .sign-in {
+    margin: 0px auto 0;
+    padding: 0;
+  }
+  .logo_place_sign-in {
+    margin: 55px auto 50px;
+  }
+  .sign-in__title {
+    margin: 0 0 80px 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .sign-in__form {
+    margin: 0 auto 0;
+    padding: 0 30px 0;
+    max-width: 396px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sign-in__form-container {
+    margin-bottom: 266px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    position: relative;
+  }
+  .sign-in__input-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .sign-in__label {
+    margin: 0 0 10px 0;
+    padding: 0;
+    color: #8b8b8b;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .sign-in__input {
+    margin: 0;
+    padding: 0 15px 0;
+    border: none;
+    height: 46px;
+    color: #fff;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 8px;
+    background: #2f2f2f;
+  }
+  .sign-in__input:focus-visible {
+    outline: 1px solid #4285f4;
+  }
+  .sign-in__input_type_email {
+    font-weight: 500;
+  }
+  .sign-in__input_type_password {
+    color: #ee3465;
+    font-size: 13px;
+  }
+  .sign-in__input-error {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    bottom: -20px;
+    color: #ee3465;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .sign-in__submit-button {
+    margin: 0 0 14px;
+    padding: 0;
+    align-self: stretch;
+    height: 45px;
+    display: block;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    color: #fff;
+    border-radius: 3px;
+    background: #4285f4;
+    border: none;
+  }
+  .sign-in__subtitle {
+    margin: 0 0 14px;
+    padding: 0;
+    color: #8b8b8b;
+    text-align: center;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .sign-in__link {
+    margin: 0;
+    padding: 0 0 0 6px;
+
+    color: #4285f4;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    text-decoration: none;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+@media screen and (min-width: 768px) {
+  .sign-in {
+    max-width: 456px;
+  }
+  .logo_place_sign-in {
+    margin: 230px 0 40px 30px;
+  }
+  .sign-in__title {
+    text-align: start;
+    margin-bottom: 40px;
+    padding-left: 30px;
+  }
+
+  .sign-in__form-container {
+    margin-bottom: 179px;
+  }
+
+  .sign-in__submit-button {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .sign-in__subtitle {
+    font-size: 14px;
+  }
+  .sign-in__link {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sign-in {
+    max-width: 456px;
+  }
+  .logo_place_sign-in {
+    margin-top: 70px;
+  }
+  .sign-in__title {
+    text-align: start;
+    padding-left: 30px;
+  }
+
+  .sign-in__form-container {
+    margin-bottom: 177px;
+  }
+
+  .sign-in__subtitle {
+    font-size: 14px;
+  }
+  .sign-in__link {
+    font-size: 14px;
+  }
+}
+.sign-in__submit-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.sign-in__link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
