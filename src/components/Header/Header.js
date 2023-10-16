@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Header(props) {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ function Header(props) {
       ) : (
         <nav className="navbar navbar_type_not-auth">
           <Link
-            to="/signin"
+            to="/signup"
             className="navbar__link navbar__link_type_not-auth"
           >
             Регистрация

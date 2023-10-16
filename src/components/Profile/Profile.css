@@ -179,3 +179,11 @@
   opacity: 0.7;
   cursor: pointer;
 }
+.profile__submit-button:disabled {
+  color: #c2c2c2;
+  background: #f8f8f8;
+}
+.profile__submit-button:disabled:hover {
+  opacity: 1;
+  cursor: default;
+}
