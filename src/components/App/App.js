@@ -16,6 +16,7 @@ import { ProtectedRoute } from '../ProtectedRoute/ProtectedRoute';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import * as auth from '../../utils/auth';
 import { api } from '../../utils/MainApi';
+import Preloader from '../Preloader/Preloader';
 
 function App() {
   const [isMenuNavigationOpen, setIsMenuNavigationOpen] = useState(false);
@@ -26,6 +27,7 @@ function App() {
   const [userData, setUserData] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
   const [title, setTitle] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,27 +39,32 @@ function App() {
     setTitle('Данные изменены!');
   }
 
+  useEffect(() => {
+    checkToken();
+  }, []);
+
   function checkToken() {
     auth
       .getContent()
       .then((data) => {
-        if (!data) {
-          return;
-        }
-        setUserData(data);
-        setIsLoggedIn(true);
-        navigate('/');
-      })
+        if (data) {
+          setIsLoggedIn(true);
 
+          setUserData(data);
+          return;
+        } else {
+          setIsLoggedIn(false);
+        }
+      })
       .catch((err) => {
         setIsLoggedIn(false);
         setUserData({});
         console.error(`WARNING ${err}`);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
-  useEffect(() => {
-    checkToken();
-  }, []);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -95,7 +102,6 @@ function App() {
       .catch((err) => {
         console.error(`WARNING ${err}`);
       });
-    console.log('Удалено');
   }
 
   function handleAddNewMovie(newMovie) {
@@ -136,7 +142,9 @@ function App() {
     setIsInfoTooltipOpen(false);
   }
 
-  return (
+  return isLoading ? (
+    <Preloader />
+  ) : (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="body">
         <div className="page">
@@ -190,13 +198,14 @@ function App() {
                 />
               }
             />
-            <Route path="/*" element={<NotFound isLoggedIn={isLoggedIn} />} />
+
             <Route
               path="/signup"
               element={
                 <Register
                   showRegisterSucces={showRegisterSucces}
                   setIsInfoTooltipOpen={setIsInfoTooltipOpen}
+                  setIsLoggedIn={setIsLoggedIn}
                 />
               }
             ></Route>
@@ -204,6 +213,7 @@ function App() {
               path="/signin"
               element={<Login handleLogin={setIsLoggedIn} />}
             />
+            <Route path="*" element={<NotFound isLoggedIn={isLoggedIn} />} />
           </Routes>
 
           <Navigation

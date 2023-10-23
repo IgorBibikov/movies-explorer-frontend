@@ -71,7 +71,7 @@ function MoviesCardList({
         window.removeEventListener('resize', showCardsForResize);
       };
     }
-  }, [location.pathname]);
+  }, [location.pathname, filteredMovies]);
 
   return (
     <section className="movies-cards">
@@ -109,13 +109,15 @@ function MoviesCardList({
         ) : null}
       </div>
       {location.pathname === '/movies' ? (
-        <button
-          type="button"
-          className="movies__btn"
-          onClick={handleMoreButtonClick}
-        >
-          Еще
-        </button>
+        count >= filteredMovies.length ? null : (
+          <button
+            type="button"
+            className="movies__btn"
+            onClick={handleMoreButtonClick}
+          >
+            Еще
+          </button>
+        )
       ) : null}
     </section>
   );

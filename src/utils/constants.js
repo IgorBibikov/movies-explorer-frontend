@@ -7,7 +7,9 @@ const INITIAL_S = 5;
 const STEP_L = 3;
 const STEP_M = 2;
 const STEP_S = 2;
-
+const EMAIL_REGEX =
+  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+const SHORT_FILM = 40;
 export {
   SCREEN_L,
   SCREEN_M,
@@ -18,4 +20,6 @@ export {
   STEP_L,
   STEP_M,
   STEP_S,
+  EMAIL_REGEX,
+  SHORT_FILM,
 };

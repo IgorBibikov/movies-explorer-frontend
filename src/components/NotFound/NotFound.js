@@ -1,6 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function NotFound(props) {
   const navigate = useNavigate();
+  console.log(props.isLoggedIn, 'в навигейт');
   function goBack() {
     navigate(-1);
   }
@@ -9,12 +10,9 @@ function NotFound(props) {
       <section className="not-found">
         <h1 className="not-found__title">404</h1>
         <p className="not-found__subtitle">Страница не найдена</p>
-        <Link
-          className="not-found__link"
-          onClick={props.isLoggedIn ? goBack : navigate('/')}
-        >
+        <button className="not-found__button" onClick={goBack}>
           Назад
-        </Link>
+        </button>
       </section>
     </main>
   );

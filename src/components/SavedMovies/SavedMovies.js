@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import { SHORT_FILM } from '../../utils/constants';
 
 function SavedMovies({ savedMovies, removeMovie }) {
   const [filteredMovies, setFilteredMovies] = useState(savedMovies);
@@ -17,7 +18,9 @@ function SavedMovies({ savedMovies, removeMovie }) {
         const lowerCaseQuery = searchQuery.toLowerCase();
         const serachName =
           nameRU.includes(lowerCaseQuery) || nameEN.includes(lowerCaseQuery);
-        return isChecked ? serachName && movie.duration <= 40 : serachName;
+        return isChecked
+          ? serachName && movie.duration <= SHORT_FILM
+          : serachName;
       })
     );
   }, []);

@@ -22,7 +22,7 @@ function SearchForm(props) {
     } else {
       setSearchQuery(searchQuery);
     }
-  }, [searchQuery, savedMovies]);
+  }, [searchQuery, savedMovies, setSearchQuery, location.pathname]);
 
   function handleSearchChange(e) {
     setSearchQuery(e.target.value);

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as auth from '../../utils/auth';
+import { EMAIL_REGEX } from '../../utils/constants';
 
 function Login(props) {
   const [errors, setErrors] = useState({});
@@ -13,13 +14,48 @@ function Login(props) {
 
   const navigate = useNavigate();
 
+  function isValidEmail(value) {
+    return EMAIL_REGEX.test(value);
+  }
+  function handleEmailChange(e) {
+    const { name, value } = e.target;
+
+    if (name === 'email' && !isValidEmail(value)) {
+      if (!e.target.validationMessage) {
+        setErrors({ ...errors, email: 'Введите email по форме: name@mail.ru' });
+      } else {
+        setErrors({ ...errors, email: e.target.validationMessage });
+      }
+    } else {
+      setErrors({ ...errors, email: '' });
+    }
+
+    setFormValue({ ...formValue, [name]: value });
+    setErrorText('');
+  }
   function handleChange(e) {
     const { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
     setErrors({ ...errors, [name]: e.target.validationMessage });
-    setIsValid(e.target.closest('form').checkValidity());
     setErrorText('');
   }
+  useEffect(() => {
+    if (errors.email || errors.password || !formValue.password) {
+      setIsValid(false);
+    } else {
+      setIsValid(true);
+    }
+    setErrorText('');
+  }, [errors]);
+
+  const resetForm = useCallback(
+    (newValues = {}, newErrors = {}, newIsValid = false) => {
+      setFormValue(newValues);
+      setErrors(newErrors);
+      setIsValid(newIsValid);
+    },
+    [setFormValue, setErrors, setIsValid]
+  );
 
   function handleLoginSubmit(e) {
     e.preventDefault();
@@ -35,17 +71,17 @@ function Login(props) {
       .then(() => {
         props.handleLogin(true);
         navigate('/movies');
+        resetForm();
       })
       .catch((err) => {
         showRegisterFail();
-        // props.setIsInfoTooltipOpen(true);
         console.error(`WARNING ${err}`);
       });
   }
   return (
     <main className="content">
       <section className="sign-in">
-        <a href="/" className="logo logo_place_sign-in" />
+        <Link to="/" className="logo logo_place_sign-in" />
         <h1 className="sign-in__title">Рады видеть!</h1>
         <form
           name="signin"
@@ -64,7 +100,7 @@ function Login(props) {
                 id="email"
                 placeholder="E-mail"
                 required
-                onChange={handleChange}
+                onChange={handleEmailChange}
               />
               <span className="sign-in__input-error">{errors.email}</span>
             </div>
@@ -77,7 +113,7 @@ function Login(props) {
                 type="password"
                 name="password"
                 id="password"
-                minLength={3}
+                minLength={6}
                 maxLength={40}
                 placeholder="Пароль"
                 required

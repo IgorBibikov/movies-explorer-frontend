@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import getAllMovies from '../../utils/MoviesApi';
+import { SHORT_FILM } from '../../utils/constants';
 
 function Movies({ savedMovies, addNewMovie, removeMovie }) {
   const [movies, setMovies] = useState([]);
@@ -24,7 +25,9 @@ function Movies({ savedMovies, addNewMovie, removeMovie }) {
         const lowerCaseQuery = searchQuery.toLowerCase();
         const serachName =
           nameRU.includes(lowerCaseQuery) || nameEN.includes(lowerCaseQuery);
-        return isChecked ? serachName && movie.duration <= 40 : serachName;
+        return isChecked
+          ? serachName && movie.duration <= SHORT_FILM
+          : serachName;
       })
     );
   }, []);
@@ -65,7 +68,7 @@ function Movies({ savedMovies, addNewMovie, removeMovie }) {
       setServerError(false);
       filterMovies(searchQuery, shortMovies, movies);
     }
-  }, [filterMovies, setIsChecked]);
+  }, [filterMovies]);
 
   function handleCheckbox() {
     if (isChecked) {
