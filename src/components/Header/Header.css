@@ -31,6 +31,9 @@
   font-family: 'Inter', ‘Arial’, sans-serif;
   text-decoration: none;
 }
+.navbar__link_active {
+  border-bottom: 1px solid #fff;
+}
 .header__profile-btn {
   display: block;
   font-family: 'Inter', ‘Arial’, sans-serif;

@@ -1,3 +1,5 @@
+import success from '../../images/success.svg';
+
 function InfoTooltip(props) {
   return (
     <div
@@ -11,7 +13,7 @@ function InfoTooltip(props) {
           type="button"
           className="popup__close-button"
         />
-        <img className="popup__image" src={props.linkImage} alt={props.title} />
+        <img className="popup__image" src={success} alt="" />
         <h2 className="popup__title popup__title_type_success">
           {props.title}
         </h2>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Header(props) {
   const navigate = useNavigate();
@@ -7,19 +7,35 @@ function Header(props) {
 
   return (
     <header className="header">
-      <a href="/" className="logo logo_place_header" />
+      <Link to="/" className="logo logo_place_header" />
       {props.isLoggedIn ? (
         <>
           <nav className="navbar navbar_type_auth">
-            <Link to="/movies" className="navbar__link navbar__link_type_auth ">
+            <NavLink
+              to="/movies"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? 'navbar__link navbar__link_type_auth navbar__link_active'
+                    : 'navbar__link navbar__link_type_auth'
+                }`
+              }
+            >
               Фильмы
-            </Link>
-            <Link
+            </NavLink>
+
+            <NavLink
               to="/saved-movies"
-              className="navbar__link navbar__link_type_auth"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? 'navbar__link navbar__link_type_auth navbar__link_active'
+                    : 'navbar__link navbar__link_type_auth'
+                }`
+              }
             >
               Сохраненные фильмы
-            </Link>
+            </NavLink>
           </nav>
           <button
             type="button"
@@ -37,7 +53,7 @@ function Header(props) {
       ) : (
         <nav className="navbar navbar_type_not-auth">
           <Link
-            to="/signin"
+            to="/signup"
             className="navbar__link navbar__link_type_not-auth"
           >
             Регистрация

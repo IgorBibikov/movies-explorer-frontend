@@ -24,7 +24,6 @@
     right: 10px;
   }
   .movies-card__saved-btn {
-    display: none;
     background: url(../../images/saved-btn.svg);
     height: 21px;
     width: 21px;
@@ -34,7 +33,6 @@
     right: 10px;
   }
   .movies-card__delete-btn {
-    display: none;
     background: url(../../images/delet-btn.svg);
     height: 21px;
     width: 21px;
